@@ -80,6 +80,7 @@
                     datos[pais][comunidad].forEach(rio => {
                         const li = document.createElement('li');
                         li.textContent = rio;
+                        ul.appendChild(li);
                     });
                     riosLista.appendChild(ul);
                 }
