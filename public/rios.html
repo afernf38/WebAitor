@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ríos para Kayak</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html">Biografía</a>
+                <a href="rios.html">Ríos</a>
+            </nav>
+        </header>
+
+        <section class="rios">
+            <h1>Ríos donde he remado</h1>
+
+            <label for="pais">Selecciona un país</label>
+            <select id="pais">
+                <option value="">--Elige un país--</option>
+                <option value="españa">España</option>
+                <option value="francia">Francia</option>
+                <option value="portugal">Portugal</option>
+            </select>
+
+            <label for="comunidad">Selecciona comunidad autónoma:</label>
+            <select id="comunidad">
+                <option value="">--Primero elige país---</option>
+            </select>
+
+            <div id="rios-lista" class="lista-rios">
+
+            </div>
+        </section>
+
+        <script>
+            const paisSelect = document.getElementById('pais');
+            const comunidadSelect = document.getElementById('comunidad');
+            const riosLista = document.getElementById('rios-lista');
+
+            const datos = {
+                españa: {
+                    'Asturias': ['Rio Sella', 'Rio Narcea'],
+                    'Cantabria': ['Rio Gandara', 'Rio Deva'],
+                    'Galicia': ['Rio Síl', 'Rio Lor'],
+                    'Castilla y León': ['Rio Tormes', 'Rio Cabrera']
+                },
+                francia: {
+                    'Occitanie': ['Rio Tarm']
+                },
+                portugal: {
+                    'Norte': ['Rio Mouro']
+                }
+
+            };
+
+            paisSelect.addEventListener('change', () => {
+                const pais = paisSelect.value;
+                comunidadSelect.innerHTML = '<option value="">--Elige comunidad--</option>';
+                riosLista.innerHTML = '';
+
+                if(datos[pais]) {
+                    Object.keys(datos[pais]).forEach(comunidad => {
+                        const option = document.createElement('option');
+                        option.value = comunidad;
+                        option.textContent = comunidad;
+                        comunidadSelect.appendChild(option);
+                    })
+                }
+            });
+
+            comunidadSelect.addEventListener('change', () => {
+                const pais = paisSelect.value;
+                const comunidad = comunidadSelect.value;
+                riosLista.innerHTML = '';
+
+                if(datos[pais] && datos[pais][comunidad]) {
+                    const ul = document.createElement('ul');
+                    datos[pais][comunidad].forEach(rio => {
+                        const li = document.createElement('li');
+                        li.textContent = rio;
+                    });
+                    riosLista.appendChild(ul);
+                }
+            });
+        </script>
+    </body>
+</html>
