@@ -26,7 +26,7 @@ header nav a:hover {
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background: url() center/cover no-repeat;
+    background: url(../img/imagen1.jpg) center/cover no-repeat;
     color: white;
     text-shadow: 0 0 5px #000;
 }
@@ -55,5 +55,53 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.rios {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rios h1 {
+    margin-bottom: 30px;
+    color: #0a2a43;
+}
+
+.rios label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #0a2a43;
+}
+
+.rios select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #0a2a43;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.lista-rios {
+    margin-top: 30px;
+}
+
+.lista-rios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-rios li {
+    background-color: #f0f8ff;
+    margin: 10px 0;
+    padding: 15px;
+    border-left: 4px solid #0a2a43;
+    border-radius: 5px;
 }
 
